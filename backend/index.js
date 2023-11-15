@@ -6,9 +6,12 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 const authRoutes = require('./routes/authRoutes');
-const memberRoutes = require('./routes/memberRoutes');
+const userRoutes = require('./routes/memberRoutes');
 app.use('/auth', authRoutes);
-app.use('/user', memberRoutes);
+app.use('/api/user', userRoutes);
+const theaterMovieRoutes = require('./routes/theaterMovieRoutes');
+app.use('/api', theaterMovieRoutes);
+
 
 const { Pool } = require('pg');
 const bcrypt = require("bcrypt");
